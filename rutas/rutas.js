@@ -44,10 +44,10 @@ const upload = multer({
 
 
 Rutas.post("/creando_libros" , upload.single("libro") , AgregandoNombre ,  ControladorProductos.Creando_Libros);
-Rutas.get("/modificando_libros", ControladorProductos.Modificando_libros);
-Rutas.get("/eliminando_libros", ControladorProductos.Eliminando_libros);
+Rutas.post("/modificando_libros", ControladorProductos.Modificando_libros);
+Rutas.post("/eliminando_libros", ControladorProductos.Eliminando_libros);
 Rutas.get("/consulta_libros", ControladorProductos.Consulta_libros);
-Rutas.get("/eliminacion_total" , ControladorProductos.Eliminando_libros_general);
+Rutas.post("/eliminacion_total" , ControladorProductos.Eliminando_libros_general);
 
 Rutas.get("/vista_creando_libros" , ControladorProductos.Vista_creando_libros);
 
