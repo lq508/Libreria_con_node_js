@@ -36,33 +36,20 @@ class ControladorProductos{
   }
 
 
-  Vista_inicial(req , res){
-
-    res.sendFile("/home/dantxd507/Documentos/Descargas/Telegram Desktop/personal/views/index.html");
 
 
+Consulta_libros= async(req , res)=> {
 
-
+let libros = await this.modelo_libros.find({});
+res.send({
+libros:libros
+});
   }
 
-   Consulta_libros= async(req , res)=> {
-
-     let libros = await this.modelo_libros.find({});
-     res.send({
-       libros:libros
-
-
-     });
-
+Modificando_libros = async (req ,res)=>{
   }
 
- Modificando_libros = async (req ,res)=>{
-
-
-  }
-
-
-   Eliminando_libros_general = async (req , res)=>{
+Eliminando_libros_general = async (req , res)=>{
     let eliminacion = await  this.modelo_libros.deleteMany({});
     if(eliminacion){
 
@@ -71,11 +58,11 @@ class ControladorProductos{
     }
   }
 
-   Eliminando_libros = async (req, res)=>{
+Eliminando_libros = async (req, res)=>{
 
-  }
+}
 
- Creando_Libros = async (req , res , nombre)=>{
+ Creando_Libros = async (req , res )=>{
     let name = req.body.nombre;
     let precio = req.body.precio;
     let tipo = req.body.tipo;
@@ -114,10 +101,17 @@ class ControladorProductos{
 
   Vista_libros_usuarios(req , res){
 
-    res.sendFile("/home/dantxd507/Documentos/Descargas/Telegram Desktop/personal/views/users/libros.html");
-
+    res.render("./users/libros");
   }
 
+
+  Vista_inicial(req , res){
+
+    res.render("index");
+
+
+
+  }
 
 
 

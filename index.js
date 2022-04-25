@@ -5,10 +5,14 @@ const App = express();
 const BodyParser = require("body-parser");
 
 
+
+
+
   App.use(BodyParser.urlencoded({extended:false}));
  App.use(Rutas);
- App.use(express.static(Path.join(__dirname, 'views')))
 
+ App.use(express.static(Path.join(__dirname, 'views')))
+ App.set("view engine", "pug");
 
 
 
