@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(charset='utf-8')
+  link(rel='stylesheet' href='../css/creando_libros.css')
+  title
+
+
+header
+  .header_nav
+    .logo
+    nav
+      ul
+        li
+          a(href='#')  Inicio
+        li
+          a(href='#')  Libros
+section.seccion_1
+  form(action='http://localhost:3000/creando_libros', method='POST', enctype='multipart/form-data')
+    .informacion
+      input(type='text', name='nombre', value='', placeholder='nombre').nombre
+      input(type='number', name='precio', value='', placeholder='precio').precio
+      input(type='radio', name='tipo', value='terror', placeholder='precio').radio
+      input(type='file', name='libro', value='', placeholder='libro').libro
+      input(type='submit', name='', value='Registrar').ingresa_libro
+
+footer

@@ -1,7 +1,10 @@
 const Rutas = require("express").Router();
 const ControladorProductos = require("./endpoints/controlador_productos.js");
+const ControladorUsuarios = require("./endpoints/controlador_usuarios.js");
+
 const multer = require("multer");
 const mimeTypes = require("mime-types");
+const controlador_usuario = require("./endpoints/controlador_usuarios.js");
 let nombre_archivo = "";
 
 
@@ -9,7 +12,7 @@ let nombre_archivo = "";
 
 
 const storage = multer.diskStorage({
-  destination:"libros/",
+  destination:"views/libros/",
   filename:function(req, file, cb){
     nombre_archivo= Date.now() + "." + mimeTypes.extension(file.mimetype);
 
@@ -40,7 +43,7 @@ const upload = multer({
 
 
 
-//Rutas
+//Rutas de los libros
 
 
 Rutas.post("/creando_libros" , upload.single("libro") , AgregandoNombre ,  ControladorProductos.Creando_Libros);
@@ -57,6 +60,13 @@ Rutas.get("/" , ControladorProductos.Vista_inicial);
 Rutas.get("/vista_libros_usuarios" , ControladorProductos.Vista_libros_usuarios);
 
 
+
+/*Rutas para usuarios*/
+
+Rutas.get("/ver_usuarios" , ControladorUsuarios.Ver_usuarios);
+Rutas.post("/crear_usuario", controlador_usuario.Crear_usuario);
+Rutas.post("/eliminar_usuario",ControladorUsuarios.Eliminar_usuario);
+Rutas.post("/modificar_usuario", ControladorUsuarios.Eliminar_usuario);
 
 
 module.exports= Rutas;
